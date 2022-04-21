@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+
+  webapp:
+    build: .
+    ports:
+      - "3333:80"

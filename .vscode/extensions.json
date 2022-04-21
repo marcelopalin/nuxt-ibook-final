@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "sdras.vue-vscode-snippets",
+        "octref.vetur",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "cssho.vscode-svgviewer",
+    ]
+}

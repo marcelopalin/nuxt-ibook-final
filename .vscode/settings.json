@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+  "explorer.compactFolders": false,
+  "vetur.validation.template": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "vetur.completion.scaffoldSnippetSources": {
+    "workspace": "from workspace defaults",
+    "user": "",
+    "vetur": ""
+  },
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.experimental.templateInterpolationService": true,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true
+
+}
