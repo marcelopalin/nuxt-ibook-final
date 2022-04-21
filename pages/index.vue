@@ -4,14 +4,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-// import { books  } from "@/store";
+import { books  } from "@/store";
 
 // Vai herdar de Layout
 export default Vue.extend({
   name: 'IndexPage',
   layout: 'ibook',
-  // asyncData() {
-  //   console.log(books.books)
-  // }
+  asyncData() {
+    console.log(books.books)
+  }
 })
 </script>

@@ -20,101 +20,111 @@ ou simplemente rodar o comando:
 docker-compose up -d --build
 ```
 
-## Iniciando com o Bootcamp
+# Template Pronto
 
-Depois de copiar a pasta `.vscode`, `assets`, favicon.ico na pasta static e
-o arquivo `.prettier` vamos começar a seguir os passos das aulas.
+Coloquei o projeto no GitHub e adicionei a Site Base para marcar até onde ainda não estava com o Vuex e Axios.
 
-- Instalando o pacote normalise.css
+```s
+git tag -a vsSiteBase -m "Apenas parte de Estrutura sem Dados do Backend"
+git push --tags
+```
 
-Lembrando que utilizaremos o `scss` que permite aninhar seletor dentro de seletor.
-Ou seja, não presisamos ficar criando separado a estilização de cada componente
-ex: h1 {} h1 span {} - basta colocar span dentro de h1 em scss.
+Vuex + Typescript + NuxtAxios
 
-- Copie a pasta `layouts` pois teremos o layout padrão (vazio) e o layout
-que usaremos para a página do site `ibook.vue`
-- O Layout da página de error 404 está em `layouts\error.vue`
 
-- Defina as regras em eslint:
-```js
-module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true
+https://axios.nuxtjs.org/setup
+
+```s
+npm install @nuxtjs/axios
+```
+
+No arquivo nuxt.config.js coloque:
+```s
+ modules: ['@nuxtjs/style-resources', '@nuxtjs/axios'],
+
+  axios: {
+    baseURL: process.env.NOV_ENV === 'production' ? '' : 'http://localhost:3333'
   },
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'plugin:nuxt/recommended',
-    'prettier'
-  ],
-  plugins: [],
-  // add your custom rules here
-  rules: {
-    'vue/multi-word-component-names': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'comma-dangle': ['error', 'never'],
-    'linebreak-style': 'off'
-  }
+```
+
+Ná página Nuxt Typescript que indica utilizarmos o pacote vuex-module-decorators
+https://typescript.nuxtjs.org/pt/cookbook/store#vuex-module-decorators
+
+Crie o arquivo plugins\accessor.ts
+```s
+import { Plugin } from '@nuxt/types'
+import { initializeAxios } from '@/utils/nuxt-instance'
+
+const accessor: Plugin = ({ $axios }) => {
+  initializeAxios($axios)
 }
-```
-- Copie em componente as pastas 1) bosons e 2) atomos 3) organisms e 4) templates
-- Instale `npm install sass -D`
 
-Ajuste o arquivo `nuxt.config.js` que pode ser renomeado para `.ts`:
-
-```js
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['normalize.css/normalize.css', '@assets/scss/base.scss'],
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: [{path: '@/components', pathPrefix: false}],
+export default accessor
 ```
 
-O arquivo .editorconfig:
+No arquivo nuxt.config.js coloque:
 
-```yml
-# EditorConfig is awesome: https://EditorConfig.org
+```s
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: ['@/plugins/accessor'],
+```
 
-# top-most EditorConfig file
-root = true
+Crie o arquivo utils\nuxt-instance.ts que é o que foi pedido aqui em  https://typescript.nuxtjs.org/pt/cookbook/store#vuex-module-decorators na seção 3
+utils/api.ts (que trocamos o nome para nuxt-instance.ts)
 
-# Unix-style newlines with a newline ending every file
-[*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+```s
+import { NuxtAxiosInstance } from '@nuxtjs/axios'
 
-# Matches multiple files with brace expansion notation
-# Set default charset
-[*.{js,py}]
-charset = utf-8
+// eslint-disable-next-line import/no-mutable-exports
+let $axios: NuxtAxiosInstance
 
-# 4 space indentation
-[*.py]
-indent_style = space
-indent_size = 4
+export function initializeAxios(axiosInstance: NuxtAxiosInstance) {
+  $axios = axiosInstance
+}
 
-# Tab indentation (no size specified)
-[Makefile]
-indent_style = tab
+export { $axios }
+```
 
-# Indentation override for all JS under lib directory
-[lib/**.js]
-indent_style = space
-indent_size = 2
 
-# Matches the exact files either package.json or .travis.yml
-[{package.json,.travis.yml}]
-indent_style = space
-indent_size = 2
+Instalando Vuex e Vuex Module Decorators
 
-[*.yml]
-indent_size = 2
 
+```s
+    "vuex": "^3.6.2",
+    "vuex-module-decorators": "^2.0.0",
+```
+
+```s
+npm install vuex@3.6.2
+npm install --save vuex-module-decorators --force
+```
+
+Se tentar instalar as últimas versões NÃO FUNCIONARÁ!
+
+# Solução do Erro de Depreciação
+
+```
+ERROR  (node:21489) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at /home/mpi/www/nuxt-ibook-final/node_modules/vuex/package.json.
+Update this package.json to use a subpath pattern like "./*".
+(Use `node --trace-deprecation ...` to show where the warning was created)
+```
+
+Entre no pacote vuex dentro de node_modules/vuex e edite o arquivo package.json
+alterando a linha 12 de
+`"./": "./"` para  `"./*": "./*"`
+
+Pronto! Não aparecerá mais o erro!
+Terá que fazer isto toda vez que instalar o projeto do Zero!
+
+## PACOTES DESATUALIZADOS
+
+```s
+npm outdated
+Package                           Current  Wanted  Latest  Location                                       Depended by
+@nuxtjs/eslint-config-typescript    8.0.0   8.0.0   9.0.0  node_modules/@nuxtjs/eslint-config-typescript  nuxt-ibook-final
+sass-loader                        10.2.1  10.2.1  12.6.0  node_modules/sass-loader                       nuxt-ibook-final
+vue                                2.6.14  2.6.14  3.2.33  node_modules/vue                               nuxt-ibook-final
+webpack                            4.46.0  4.46.0  5.72.0  node_modules/webpack                           nuxt-ibook-final
 ```
 
 
