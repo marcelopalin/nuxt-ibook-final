@@ -3,8 +3,8 @@
     <p>
       <b>O</b> iBook é uma plataforma de leitura de livros on-line fictícia.
       Criada por
-      <a href="https://github.com/Thiagoow" target="_blank"
-        >Thiago Silva Lopes</a
+      <a href="https://github.com/marcelopalin/nuxt-ibook-final" target="_blank"
+        >Marcelo Facio Palin</a
       >
       em 2021, tendo como base as aulas de Escalando Vue com Nuxt, no
       <a href="https://bootcamp.cataline.io/" target="_blank"
@@ -13,7 +13,7 @@
       Desenvolvido utilizando as tecnologias: Nuxt.js, VueX, Typescript, HTML e
       SCSS, e as bibliotecas: Axios (instalada como módulo do Nuxt) e Swiper.js.
       Você pode consultar o código completo desse website, nesse link:
-      <a href="https://github.com/Thiagoow/NuxtJs-IbookProject-ScalingVue"
+      <a href="https://github.com/marcelopalin/nuxt-ibook-final"
         >repositório do GitHub.</a
       >
     </p>

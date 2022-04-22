@@ -3,8 +3,8 @@
     <Container>
       <Logo />
       <p>
-        <a href="https://github.com/Thiagoow" target="_blank"
-          >© Thiago Silva Lopes</a
+        <a href="https://github.com/marcelopalin/nuxt-ibook-final" target="_blank"
+          >© Marcelo Facio Palin</a
         >
         {{ anoAtual }}
       </p>

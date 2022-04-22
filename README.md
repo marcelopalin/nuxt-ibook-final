@@ -1,12 +1,5 @@
 # nuxt-ibook-new
 
-Exemplo já implementado deste projeto pode ser visto em:
-
-https://github.com/Thiagoow/NuxtJs-IbookProject-ScalingVue
-
-E a API com os dados em:
-
-https://github.com/Thiagoow/API-JsonServer-iBook-ThiagoSilvaLopes
 
 # Rodando o Projeto
 
