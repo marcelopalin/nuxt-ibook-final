@@ -1,5 +1,34 @@
 # nuxt-ibook-new
 
+Exemplo já implementado deste projeto pode ser visto em:
+
+https://github.com/Thiagoow/NuxtJs-IbookProject-ScalingVue
+
+E a API com os dados em:
+
+https://github.com/Thiagoow/API-JsonServer-iBook-ThiagoSilvaLopes
+
+# Rodando o Projeto
+
+Instale globalmente o json-server e execute-o na raiz do projeto:
+
+```s
+json-server --watch books.json --port 3333
+```
+
+Veja que a porta 3333 está definida no `nuxt.config.js`
+
+Abra um novo terminal e instale os pacotes e rode a aplicação:
+
+```s
+npm install
+npm run dev
+```
+
+Acesse: localhost:3000 - abra o console neste ponto, deixei
+a impressão dos ebooks para você verificar que estamos
+preenchendo o vuex do lado do servidor.
+
 ## Rodando com Docker
 
 Podemos construir a imagem e nomeá-la de nuxt:nginx
@@ -127,6 +156,32 @@ vue                                2.6.14  2.6.14  3.2.33  node_modules/vue     
 webpack                            4.46.0  4.46.0  5.72.0  node_modules/webpack                           nuxt-ibook-final
 ```
 
-## Entendendo o vuex-module-decorators
+## Backend
 
+Instale https://www.fabricadecodigo.com/json-server/
 
+```s
+npm install -g json-server
+```
+
+Execute:
+
+```
+json-server --watch books.json
+```
+
+Acesse:
+
+```s
+http://localhost:3000/books
+```
+
+## Rotas
+
+Request	URL	Detalhes
+GET	/books	Busca todos os books
+GET	/books/1	Busca um book
+POST	/books	Salva um book
+PUT	/books/1	Atualiza dos os dados do book
+PATCH	/books/1	Atualiza parte dos dados do book
+DELETE	/books/1	Remove um book
