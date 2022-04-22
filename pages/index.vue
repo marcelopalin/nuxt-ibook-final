@@ -15,6 +15,6 @@ export default Vue.extend({
   só ser exibida depois que os livros carregarem): */
   async asyncData() {
     await books.index()
-  },
+  }
 })
 </script>

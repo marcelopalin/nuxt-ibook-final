@@ -18,8 +18,8 @@ export default Vue.extend({
       /* Retorna os dados do singleBook lá do Vuex (@/store)
        a partir do getter single (por isso o $, ele é um getter): */
       return books.$single
-    },
-  },
+    }
+  }
 })
 </script>
 

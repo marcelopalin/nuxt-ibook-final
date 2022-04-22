@@ -29,8 +29,8 @@ export default Vue.extend({
        a partir do getter single (por isso o $, ele é um getter): */
     $book() {
       return books.$single
-    },
-  },
+    }
+  }
 })
 </script>
 

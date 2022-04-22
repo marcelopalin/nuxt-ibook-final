@@ -9,9 +9,9 @@ export default Vue.extend({
   props: {
     text: {
       type: String,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 })
 </script>
 

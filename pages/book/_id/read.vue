@@ -21,10 +21,10 @@ export default Vue.extend({
           // Id da metaTag:
           hid: 'description',
           name: 'description',
-          content: books.$single.description,
-        },
-      ],
+          content: books.$single.description
+        }
+      ]
     }
-  },
+  }
 })
 </script>
