@@ -18,10 +18,10 @@ export default Vue.extend({
   props: {
     book: {
       type: Object,
-      required: true,
+      required: true
       // Tipagem da prop de book:
-    } as PropOptions<Book>,
-  },
+    } as PropOptions<Book>
+  }
 })
 </script>
 
