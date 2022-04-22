@@ -1,28 +1,20 @@
 <template>
-  <div>
-    <HomeTemplate />
-  </div>
+  <HomeTemplate />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+// -----------Fazendo o SSR (SEMPRE NAS PAGES):
+// 1º Importamos o modulo definido na pasta store:
 import { books } from '@/store'
 
-// Vai herdar de Layout
 export default Vue.extend({
-  name: 'IndexPage',
-  layout: 'ibook',
+  layout: 'iBook',
   /* Testando o módulo:
   (sendo esse módulo assíncrono para a página
   só ser exibida depois que os livros carregarem): */
-  /** asyncData só está disponível para o componente Página
-   * para acontecer do lado do servidor.
-   * Se utilizar em qualquer outro componente acontecerá
-   * do lado do Cliente.
-   * Página = Gatilho para preencher o Vuex
-   */
   async asyncData() {
     await books.index()
-  }
+  },
 })
 </script>

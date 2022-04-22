@@ -1,31 +1,22 @@
 <template>
-<!-- div.header>nav>ul.items>li.item*3>NuxtLink[to="/"] -->
-<header class="header">
-  <nav>
-    <ul class="items">
-      <li class="item">
-        <NuxtLink to="/">
-        <Logo />
-        </NuxtLink>
-      </li>
-      <li class="item">
-        <NuxtLink to="/">Home</NuxtLink>
-      </li>
-      <li class="item">
-        <NuxtLink to="/about">Sobre</NuxtLink>
-      </li>
-    </ul>
-  </nav>
-</header>
+  <header class="header">
+    <nav>
+      <ul class="items">
+        <li class="item">
+          <NuxtLink to="/">
+            <Logo />
+          </NuxtLink>
+        </li>
+        <li class="item">
+          <NuxtLink to="/">Home</NuxtLink>
+        </li>
+        <li class="item">
+          <NuxtLink to="/about">Sobre</NuxtLink>
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
-
-<script lang="ts">
-  import Vue from 'vue'
-
-  export default Vue.extend({
-    name: 'Header'
-  })
-</script>
 
 <style lang="scss" scoped>
 .header {

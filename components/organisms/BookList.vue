@@ -1,17 +1,46 @@
 <template>
-  <div class="booklist">
-    <h2>Listagem de Livros</h2>
+  <div class="bookList">
+    <!--Exibe 1 BookCard, pra cada livro, na array de books
+    (presente na API, requisitada a partir do books.ts importado em *¹)-->
+    <BookCard v-for="book in $books" :key="book.id" :book="book" />
   </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue'
 
+  /** Como já fizemos o preenchimento do vuex
+   * na página principal com asyncData.
+   * Agora basta pegarmos do Vuex e preenchermos
+   * a interface com v-for
+   */
+  import { books } from '@/store'
+
   export default Vue.extend({
-    name: 'BookList'
+    name: 'BookList',
+    computed: {
+      /** Uso do $ - Definição própria para dizer que é um Getter e é imutável */
+      $books() {
+        return books.$all
+      }
+    }
   })
 </script>
 
 <style lang="scss" scoped>
-
+.bookList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  //Espaçamento entre os livros:
+  grid-gap: 2rem;
+  //Espaçamento entre a lista de livros e o footer:
+  margin-bottom: -1.5rem;
+  @include screen('small') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include screen('medium') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>

@@ -4,14 +4,6 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
-
-  export default Vue.extend({
-    name: 'Container'
-  })
-</script>
-
 <style lang="scss" scoped>
 .container {
   margin: 0 auto;

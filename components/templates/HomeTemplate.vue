@@ -1,21 +1,14 @@
 <template>
-  <div class="home-template">
-    <PageTitle text="Bem-vindo ao " strong="iBook"></PageTitle>
-    <Releases />
+  <div class="homeTemplate">
+    <PageTitle text="Bem vindo ao " strong="iBook! 📚" />
+    <BookReleases />
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
-
-  export default Vue.extend({
-    name: 'HomeTemplate'
-  })
-</script>
-
 <style lang="scss" scoped>
-.home-template {
+.homeTemplate {
   display: grid;
-  grid-gap: 4rem;
+  //Espaçamento entre o PageTitle e a BookList:
+  grid-gap: 1.5rem;
 }
 </style>
